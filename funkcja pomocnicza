@@ -1,0 +1,19 @@
+package org.example;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class zadaniefunkcja {
+    public static  void main(String[] args){
+        int liczba = input("podaj liczba:");
+    }
+    static int input(String message){
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("siema " + message);
+            return input.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Podano złą wartość");
+            return input(message);
+        }
+    }
+}
