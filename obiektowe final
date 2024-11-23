@@ -1,0 +1,122 @@
+Test.java:
+ 
+ 
+public class Test {
+    public static void main(String[] args){
+        Person artur = new Person("Robert", "Kurwica", 18);
+        Person witek = new Person("Witek", "Kałuża", 20);
+        Address address = new Address("Ohio", "Skibidi");
+ 
+        Student student = new Student("Michał", "Kowalski", 30, 1);
+        Student secondStudent = new Student("Mirosław", "Cebula", 48, 2);
+ 
+        artur.setName("Artur");
+        artur.setSurname("Wiosło");
+        artur.setAddress(address);
+        System.out.println("");
+        System.out.println("PIERWSZY UCZESTNIK:");
+        System.out.println(artur.getName()+" "+artur.getSurname()+" "+artur.getAge()+" "+artur.getAddress());
+        System.out.println("");
+        System.out.println("DRUGI UCZESTNIK:");
+        System.out.println(witek.getName()+" "+witek.getSurname()+" "+witek.getAge());
+        System.out.println(secondStudent.getIndexNumber());
+        secondStudent.setSurname("Klakson");
+        System.out.println(secondStudent.getSurname());
+    }
+}
+ 
+ 
+Person.java:
+ 
+class Person{
+    private String name;
+    private String surname;
+    private int age;
+    private Address address;
+ 
+    public Person(String name, String surname, int age){
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+ 
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+ 
+    public Address getAddress(){
+        return address;
+    }
+ 
+    public int getAge(){ return age; }
+    public String getName(){ return name; }
+    public String getSurname(){ return surname; }
+ 
+    public void setName(String name){
+        System.out.println("UWAGA nastąpiła zmiana imienia.");
+        this.name = name;
+    }
+ 
+    public void setSurname(String surname){
+        if(this.age >=18){
+            System.out.println("UWAGA nastąpiła zmiana nazwiska.");
+            this.surname = surname;
+        }
+        else{
+            System.out.println("Zmiana nazwiska jest możliwa jedynie, gdy osoba jest pełnoletnia.");
+        }
+    }
+}
+ 
+ 
+ 
+Student.java:
+ 
+class Student extends Person{
+    private int indexNumber;
+    public Student(String name, String surname, int age, int indexNumber){
+        super(name, surname, age);
+        this.indexNumber = indexNumber;
+    }
+ 
+    public Student(Person person, int indexNumber){
+        super(person.getName(), person.getSurname(), person.getAge());
+        this.indexNumber = indexNumber;
+    }
+ 
+    public int getIndexNumber(){
+        return indexNumber;
+    }
+ 
+}
+ 
+ 
+ 
+Address.java:
+ 
+class Address{
+    private String city;
+    private String street;
+ 
+    public Address(String city, String street){
+        this.city = city;
+        this.street = street;
+    }
+ 
+    public void setCity(String city){
+        this.city = city;
+    }
+ 
+    public String getCity(){
+        return city;
+    }
+ 
+    public void setStreet(String street){
+        this.street = street;
+    }
+ 
+    public String getStreet(){
+        return street;
+    }
+ 
+}
