@@ -1,0 +1,63 @@
+package org.example;
+
+public class obiektowe {
+    public static void main(String[] args) {
+        Person artur = new Person("adam", "adam", 18);
+        System.out.println(artur.getAge());
+        System.out.println(artur.getSurname());
+        System.out.println(artur.getName());
+        artur.setSurname("Arcix");
+        System.out.println(artur.getSurname());
+        artur.setName("Artur");
+        System.out.println(artur.getName());
+    }
+}
+    class Person {
+        private String name;
+        private String surname;
+        private int age;
+        public Person(String name, String surname, int age){
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+        }
+        public int getAge(){
+            return age;
+        }
+        public String getSurname(){
+            return surname;
+        }
+        public String getName(){
+            return name;
+        }
+        public void setName(String name){
+            if(age < 18){
+                System.out.println("jestes niepelnoletni sorku");
+            }
+            else{
+                this.name = name;
+            }
+        }
+        public void setSurname(String surname){
+            System.out.println("Uwaga zmieniasz naziwko czy jestes pewien?");
+            this.surname = surname;
+        }
+    }
+    class Adres{
+    private String miasto;
+    private String ulica;
+    public Adres(String miasto, String ulica){
+        this.miasto = miasto;
+        this.ulica = ulica;
+    }
+    }
+    class Student extends Person {
+        private int indexNumber;
+        public Student(String name, String surname, int age){
+        super(name, surname, age);
+        this.indexNumber = indexNumber;
+        }
+
+    }
+
+
